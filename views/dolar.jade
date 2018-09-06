@@ -23,15 +23,10 @@ block content
 							tr
 								td(colspan="4" style="text-align:center") Sin usuarios
 						else
-							for usuario in data
-								tr
-									td(scope="col" class="dato")=usuario.nombre
-									td(scope="col" class="dato")=usuario.apellido
-									td(scope="col" class="dato")=usuario.email
-									td(scope="col" class="dato")=usuario.password
-									td(scope="col" class="dato")
-										a(href="../../usuarios/edit/#{usuario.id}" class="btn btn-success") Editar
-										&nbsp;&nbsp;
-										a(href="javascript:void(0)" class="btn btn-danger" onclick="borrarUsuario(#{usuario.id});") Borrar
+							tr
+								for (var i = 0; i < data - 1; i++){
+									td(scope="col" class="dato")=data[i];
+								};
+							
 
 			include layouts/footer.jade

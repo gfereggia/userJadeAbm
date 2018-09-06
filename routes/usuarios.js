@@ -11,6 +11,7 @@ exports.list = function(req, res){
             if(err)
                 console.log("Error Selecting : %s ",err );
      
+            //res.json(rows);
             res.render('usuarios.jade',{page_title:"Listado de usuarios",data:rows});
                 
            
