@@ -1,0 +1,31 @@
+extends layouts/header.jade
+
+block content
+			.page-data
+			
+				form(method="post" action="/usuarios/edit/#{data[0].id}" class="form-signin")
+					table(cellpadding="11")
+						tr
+							td.label Nombre
+							td 
+								input(type="text" name="nombre" value="#{data[0].nombre}" class="form-control" required)
+						tr
+							td.label Apellido
+							td 
+								input(type="text" value="#{data[0].apellido}" name="apellido" class="form-control" required)
+						tr
+							td.label Email
+							td 
+								input(type="email" value="#{data[0].email}" name="email" class="form-control" required)
+						tr
+							td.label Password
+							td 
+								input(type="password" value="#{data[0].password}" name="password" class="form-control" required)
+						tr
+							td.label
+							td
+								input(type="submit" name="submit" value="Guardar" class="btn btn-success")
+								&nbsp;&nbsp;
+								input(type="button" name="cancel" value="Cancelar" class="cancel btn btn-danger" onClick="cancelAddUsuario()")
+							
+			include layouts/footer.jade
