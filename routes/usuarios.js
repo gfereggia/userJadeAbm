@@ -11,8 +11,8 @@ exports.list = function(req, res){
             if(err)
                 console.log("Error Selecting : %s ",err );
      
-            //res.json(rows);
-            res.render('usuarios.jade',{page_title:"Listado de usuarios",data:rows});
+            res.json(rows);
+            //res.render('usuarios.jade',{page_title:"Listado de usuarios",data:rows});
                 
            
          });
@@ -40,7 +40,8 @@ exports.edit = function(req, res){
             if (rows.length == 0){
               alert ("Usuario inexistente");
             }else{
-              res.render('edit_usuarios.jade',{page_title:"Editar Usuario",data:rows});
+              res.json(rows);
+              //res.render('edit_usuarios.jade',{page_title:"Editar Usuario",data:rows});
             }
                      
          });
@@ -78,6 +79,7 @@ exports.save = function(req,res,next){
       console.log("Error inserting : %s ",err );
 
       console.log(query.sql); //get raw query
+      //res.json(rows);
       res.redirect('/usuarios');
 
     });
@@ -149,13 +151,14 @@ exports.buscar = function(req, res){
     req.getConnection(function(err,connection){
        
      
-      var query = connection.query("SELECT * FROM usuarios where nombre LIKE ? ;",['%' + busqueda + '%'],function(err,rows)
+      var query = connection.query("SELECT * FROM usuarios where nombre LIKE ? OR apellido LIKE ? OR email LIKE ?;",['%' + busqueda + '%', '%' + busqueda + '%', '%' + busqueda + '%'],function(err,rows)
         {
             if(err)
                 console.log("Error Selecting : %s ",err );
             
             console.log(query.sql);    
-            res.render('usuarios.jade',{page_title:"Listado de usuarios",data:rows});
+            res.json(rows);
+            //res.render('usuarios.jade',{page_title:"Listado de usuarios",data:rows});
                 
          });
          

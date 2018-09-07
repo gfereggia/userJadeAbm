@@ -22,13 +22,13 @@ exports.list = function(req, res){
             console.dir(obj[i]);
         }
 
-        console.log(obj);
+        //console.log(obj);
 
         //console.dir(JSON.parse(body));
         //console.dir(obj.size(obj) - 1);
-        
+         res.json(obj);
         //res.redirect('/dolar',{page_title:"Informacion de Dolar",data:JSON.parse(body)});
-        res.render('dolar.jade',{page_title:"Informacion de Dolar",data:obj});
+        //res.render('dolar.jade',{page_title:"Informacion de Dolar",data:obj});
         //res.render('dolar.jade',{page_title:"Informacion de Dolar",data:obj});
     });
 };
