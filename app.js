@@ -12,6 +12,8 @@ var session = require('express-session');
 //load admin route
 var usuarios = require('./routes/usuarios');
 var dolar = require('./routes/dolar');
+var pesos = require('./routes/pesos');
+var real = require('./routes/real');
 
 
 var app = express();
@@ -66,6 +68,7 @@ app.use(
 
 app.get('/', routes.index);
 
+// USUARIOS
 app.get('/usuarios', usuarios.list);
 app.get('/usuarios/add', usuarios.add);
 app.post('/usuarios/add', usuarios.save);
@@ -74,7 +77,10 @@ app.get('/usuarios/edit/:id', usuarios.edit);
 app.get('/usuarios/buscar/:busqueda', usuarios.buscar);
 app.post('/usuarios/edit/:id',usuarios.save_edit);
 
+// MONEDAS
 app.get('/dolar', dolar.list);
+app.get('/pesos', pesos.list);
+app.get('/real', real.list);
 
 app.use(app.router);
 

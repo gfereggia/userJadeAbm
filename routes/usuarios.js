@@ -11,8 +11,8 @@ exports.list = function(req, res){
             if(err)
                 console.log("Error Selecting : %s ",err );
      
-            res.json(rows);
-            //res.render('usuarios.jade',{page_title:"Listado de usuarios",data:rows});
+            //res.json(rows);
+            res.render('usuarios.jade',{page_title:"Listado de usuarios",data:rows});
                 
            
          });
@@ -40,8 +40,8 @@ exports.edit = function(req, res){
             if (rows.length == 0){
               alert ("Usuario inexistente");
             }else{
-              res.json(rows);
-              //res.render('edit_usuarios.jade',{page_title:"Editar Usuario",data:rows});
+              //res.json(rows);
+              res.render('edit_usuarios.jade',{page_title:"Editar Usuario",data:rows});
             }
                      
          });
@@ -157,8 +157,8 @@ exports.buscar = function(req, res){
                 console.log("Error Selecting : %s ",err );
             
             console.log(query.sql);    
-            res.json(rows);
-            //res.render('usuarios.jade',{page_title:"Listado de usuarios",data:rows});
+            //res.json(rows);
+            res.render('usuarios.jade',{page_title:"Listado de usuarios",data:rows});
                 
          });
          
