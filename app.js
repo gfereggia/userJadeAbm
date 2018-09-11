@@ -8,6 +8,7 @@ var routes = require('./routes');
 var http = require('http');
 var path = require('path');
 var session = require('express-session');
+var cors = require('cors');
 
 //load admin route
 var usuarios = require('./routes/usuarios');
@@ -21,6 +22,7 @@ var app = express();
 var connection  = require('express-myconnection'); 
 var mysql = require('mysql');
 
+app.use(cors())
 
 // all environments
 app.set('port', process.env.PORT || 4300);
