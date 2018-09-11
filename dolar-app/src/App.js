@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Card, Button, CardImg, CardTitle, CardText, CardGroup,
- CardSubtitle, CardBody } from 'reactstrap';
+import { Card, Button, CardImg, CardTitle, CardText, CardGroup, CardSubtitle, CardBody } from 'reactstrap';
 import axios from 'axios';
 import Dolar from './assets/dolar.jpg';
 import Reales from './assets/reales.jpg';
@@ -14,11 +13,13 @@ class App extends Component {
       cotizacion: []
     }
     
-    this.callCotizacion = this.callCotizacion.bind(this)
+    this.callCotizacion = this.callCotizacion.bind(this);
   }
 
+
   componentDidMount () {
-    this.countdown = setInterval(this.callCotizacion, 1000);
+    this.callCotizacion();
+    this.countdown = setInterval(this.callCotizacion, 10000);
   }
   
   componentWillUnmount () {
@@ -48,7 +49,8 @@ class App extends Component {
             <CardBody>
               <CardTitle>{this.state.cotizacion[0]}</CardTitle>
               <CardSubtitle>{this.state.cotizacion[1]}</CardSubtitle>
-              <CardText>{this.state.cotizacion[2]}</CardText>
+              <CardText>{this.countdown}</CardText>
+
               <Button>Button</Button>
             </CardBody>
           </Card> 
